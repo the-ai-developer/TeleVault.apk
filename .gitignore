@@ -110,3 +110,6 @@ android/app/src/main/assets/index.android.bundle.meta
 # React Native (additional)
 .react/
 .rn-cli-cache/
+
+# Large development files
+commandlinetools-linux-11076708_latest.zip
