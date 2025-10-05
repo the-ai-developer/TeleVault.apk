@@ -67,13 +67,8 @@ Before running this project, make sure you have:
 
 ### 1. Clone the Repository
 ```bash
-<<<<<<< HEAD
 git clone https://github.com/the-ai-developer/TeleVault.apk.git
 cd TeleVault
-=======
-git clone https://github.com/your-username/tele-vault.git
-cd tele-vault
->>>>>>> 5411959 (Add comprehensive README.md and update .gitignore)
 ```
 
 ### 2. Install Dependencies
@@ -241,11 +236,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have questions, feature requests, or need help:
 
-<<<<<<< HEAD
 - Create an [issue](https://github.com/the-ai-developer/TeleVault.apk/issues) on GitHub
-=======
-- Create an [issue](https://github.com/your-username/tele-vault/issues) on GitHub
->>>>>>> 5411959 (Add comprehensive README.md and update .gitignore)
 - Check the [BUILD_INSTRUCTIONS.md](./BUILD_INSTRUCTIONS.md) for additional setup help
 - Review the troubleshooting section in the React Native docs
 
