@@ -7,41 +7,83 @@
 
 > **TeleVault** is a powerful React Native mobile app that transforms Telegram into your personal cloud storage vault. Securely store, manage, and access your files from anywhere with military-grade encryption and offline support.
 
-## Step 1: Start Metro
+## 🚀 Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 🔐 Security & Authentication
+- **AES-256 Encryption** for sensitive data and credentials
+- **PBKDF2 Password Hashing** with 10,000 iterations
+- **Salt-based Security** with unique salt per user
+- **Secure Session Management**
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 💾 File Management
+- **Advanced File Upload** to Telegram with progress tracking
+- **File Organization** with smart categorization (images, documents, videos, etc.)
+- **Powerful Search** by filename, tags, categories, and file type
+- **Bulk Operations** - select, move, delete, and download multiple files
+- **File Preview** for images, PDFs, and documents
 
-```sh
-# Using npm
-npm start
+### 📊 Analytics & Storage
+- **Real Storage Analytics** with detailed usage statistics
+- **Storage Limits** monitoring (virtual 10GB limit)
+- **File Type Distribution** charts and insights
+- **Usage Reports** and storage optimization suggestions
 
-# OR using Yarn
-yarn start
+### 🔄 Offline & Sync
+- **Offline Queue System** - uploads work without internet connection
+- **Smart Queue Management** with retry logic for failed uploads
+- **Background Sync** - automatic upload resumption when online
+- **Connection-aware UI** with offline indicators
+
+### 🎨 User Experience
+- **Modern Material Design** with intuitive navigation
+- **Dark Mode Support** with system theming
+- **Responsive UI** optimized for various screen sizes
+- **Fast Refresh** for development
+
+## 🛠️ Technology Stack
+
+- **Framework**: React Native 0.81.4
+- **Language**: TypeScript 5.8.3
+- **Navigation**: React Navigation v7
+- **State Management**: React Hooks
+- **Styling**: Tailwind CSS (NativeWind)
+- **Storage**: AsyncStorage + SQLite
+- **Encryption**: CryptoJS (AES-256)
+- **Backend**: Telegram Bot API
+- **Build**: Metro + Gradle
+
+## 📋 Prerequisites
+
+Before running this project, make sure you have:
+
+- **Node.js** 18 or higher
+- **React Native CLI**
+- **Android Studio** (for Android development)
+- **Xcode** (for iOS development, macOS only)
+- **Java JDK 11+**
+- **Watchman** (optional, improves file watching)
+
+## 🚀 Installation & Setup
+
+### 1. Clone the Repository
+```bash
+<<<<<<< HEAD
+git clone https://github.com/the-ai-developer/TeleVault.apk.git
+cd TeleVault
+=======
+git clone https://github.com/your-username/tele-vault.git
+cd tele-vault
+>>>>>>> 5411959 (Add comprehensive README.md and update .gitignore)
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### 2. Install Dependencies
+```bash
+npm install --legacy-peer-deps
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
+### 3. Install iOS Dependencies (macOS only)
+```bash
+cd ios
 bundle install
 bundle exec pod install
 cd ..
@@ -77,45 +119,138 @@ npm run android
 **iOS (macOS only):**
 ```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📱 Building Production APK
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+For detailed Android build instructions, see [BUILD_INSTRUCTIONS.md](./BUILD_INSTRUCTIONS.md)
 
-## Step 3: Modify your app
+### Quick Release Build:
+```bash
+cd android
+./gradlew assembleRelease
+```
 
-Now that you have successfully run the app, let's make changes!
+The APK will be generated at: `android/app/build/outputs/apk/release/app-release.apk`
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## 🔧 Development Scripts
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Running the App
+```bash
+npm start          # Start Metro bundler
+npm run android    # Run on Android
+npm run ios        # Run on iOS
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Code Quality
+```bash
+npm run lint      # Run ESLint
+npm test          # Run Jest tests
+```
 
-## Congratulations! :tada:
+### Building
+```bash
+npm run build-apk # Build debug APK (see build-apk.sh)
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+## 📂 Project Structure
 
-### Now what?
+```
+TeleVault/
+├── android/                 # Android native code
+├── ios/                     # iOS native code
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── config/              # Environment configuration
+│   ├── screens/             # App screens/pages
+│   │   ├── AuthScreen.tsx   # Login/Signup screen
+│   │   ├── HomeScreen.tsx   # Main file management
+│   │   ├── UploadScreen.tsx # File upload interface
+│   │   ├── ProfileScreen.tsx # Analytics & settings
+│   │   └── FileViewerScreen.tsx # File preview
+│   ├── services/            # Business logic & APIs
+│   │   ├── telegramService.ts    # Telegram API integration
+│   │   ├── databaseService.ts    # Local SQLite database
+│   │   ├── securityService.ts    # Encryption & auth
+│   │   ├── storageService.ts     # Storage analytics
+│   │   └── offlineQueueService.ts # Offline functionality
+│   ├── utils/               # Utility functions
+│   └── types.d.ts           # TypeScript type definitions
+├── __tests__/               # Unit tests
+├── .eslintrc.js            # ESLint configuration
+├── jest.config.js          # Jest configuration
+├── metro.config.js         # Metro bundler config
+├── tailwind.config.js      # Tailwind CSS config
+└── tsconfig.json           # TypeScript configuration
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 🔒 Security Features
 
-# Troubleshooting
+- **End-to-End Security**: Files stored securely via Telegram's infrastructure
+- **AES-256 Encryption**: User credentials and sensitive data are encrypted
+- **Password Hashing**: PBKDF2 with 10,000 iterations for secure authentication
+- **Secure API Keys**: Environment-based configuration for sensitive credentials
+- **Offline Data Protection**: Local data is encrypted and securely stored
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 🎯 Usage Guide
 
-# Learn More
+### First Time Setup
+1. Launch the app and create your account with a strong password
+2. Grant necessary permissions (storage, camera, etc.)
+3. You're ready to start uploading files!
 
-To learn more about React Native, take a look at the following resources:
+### File Management
+- **Upload**: Tap the + button or use the Upload screen
+- **Browse**: Use filters to find files by type, date, or search
+- **Preview**: Tap any file to view details and content
+- **Bulk Actions**: Long-press to select multiple files
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Offline Usage
+- Upload files while offline - they'll be queued automatically
+- View local status in the Profile screen
+- Files sync when connection is restored
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+- Follow the existing code style
+- Add tests for new features
+- Update documentation as needed
+- Ensure all tests pass
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Telegram Bot API** for providing powerful messaging infrastructure
+- **React Native Community** for amazing development tools
+- **Expo** for helpful utilities and libraries
+- The open-source community for inspiration and support
+
+## 📞 Support
+
+If you have questions, feature requests, or need help:
+
+<<<<<<< HEAD
+- Create an [issue](https://github.com/the-ai-developer/TeleVault.apk/issues) on GitHub
+=======
+- Create an [issue](https://github.com/your-username/tele-vault/issues) on GitHub
+>>>>>>> 5411959 (Add comprehensive README.md and update .gitignore)
+- Check the [BUILD_INSTRUCTIONS.md](./BUILD_INSTRUCTIONS.md) for additional setup help
+- Review the troubleshooting section in the React Native docs
+
+---
+
+**Made with ❤️ by the development team**
+
+> *Transforming ideas into reality, one commit at a time!*
